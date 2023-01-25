@@ -6,6 +6,8 @@ import com.tpe.service.MailService;
 import com.tpe.service.MessageService;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import java.awt.*;
+
 public class MyApplication {
     public static void main(String[] args) {
         Message message = new Message();
@@ -25,10 +27,25 @@ public class MyApplication {
         // MessageService service = context.getBean(MessageService.class);
 
         //after adding SMS class run this again then add @Component
-        MessageService service = context.getBean("whatsAppService", MessageService.class);
+        MessageService service = context.getBean("mailService", MessageService.class);
 
+
+
+        //let s test if they are referring to the same object or not
+        MessageService service2 = context.getBean("smsService", MessageService.class);
+        if(service==service2){
+            System.out.println("They are the same object");
+        }else{
+            System.out.println("They are NOT the same object");
+        }
+
+
+        //by default it has Singleton scope, wherever I call i will get the sam object...
+        //if I want to create different object, then go to @Component where
         service.sendMessage(message);
 
+        Point point = context.getBean("point",Point.class);
+        System.out.println(point.getX());
 
         context.close(); // life cycle of created instantiated beans will be ended...
 
