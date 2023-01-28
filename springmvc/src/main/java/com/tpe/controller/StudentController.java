@@ -16,5 +16,6 @@ public class StudentController {
         mav.addObject("messagebody", "I am Student management system");
         mav.setViewName("hi"); //hi.jsp
         return mav;
+        //added changes
     }
 }
