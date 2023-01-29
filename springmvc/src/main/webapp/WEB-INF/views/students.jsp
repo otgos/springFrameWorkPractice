@@ -42,7 +42,7 @@
 					<td>${student.firstName}</td>
 					<td>${student.lastName}</td>
 					<td>${student.grade}</td>
-					<td>${student.createDate}</td>
+					<td>${student.createdDate}</td>
 					<td>
 						<!-- show the links --> 
 						 

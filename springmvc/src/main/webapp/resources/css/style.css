@@ -3,13 +3,14 @@ body {
 	box-sizing: border-box;
 }
 
-.container {
+.container{
+
 	height: 100vh;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	flex-direction: column;
-	background: url('/resources/images/back.png');
+	background-image:url('/resources/images/back.png');
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -17,7 +18,7 @@ body {
 
 h1 {
 	font-size: 10rem;
-	color: #fff;
+	color: #f10505;
 	text-transform: uppercase;
 	font-weight: 700;
 	margin-bottom: 1rem;
@@ -25,7 +26,7 @@ h1 {
 
 h2 {
 	font-size: 2rem;
-	color: #fff;
+	color: #ea0c0c;
 	text-transform: uppercase;
 	font-weight: 700;
 	margin-bottom: 1rem;

@@ -1,16 +1,22 @@
 package com.tpe.domain;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 //let s comment thos for now, becasue we did not set db yet
-//@Entity
-//@Table(name="t_student")
+@Entity
+@Table(name="tbl_stdnt")
 public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @NotEmpty(message= "first Name cannot be empty")
     private String firstName;
+
+    @NotEmpty(message= "last Name cannot be empty")
     private String lastName;
+    @NotNull(message= "Please enter grade")
     private Integer grade;
 
     private LocalDateTime createdDate = LocalDateTime.now();
