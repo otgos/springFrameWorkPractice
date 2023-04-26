@@ -16,4 +16,8 @@ public class SMSService implements MessageService{
         System.out.println("Email: " +properties.get("app.email"));
         System.out.println("Java Home: "+properties.get("JAVA_HOME"));
     }
+
+    @Override
+    public void saveMessage(Message message) {
+    }
 }

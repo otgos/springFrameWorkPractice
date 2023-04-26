@@ -63,4 +63,8 @@ public class MailService implements MessageService{
         repository.saveMessage(message);
         System.out.println(email);
     }
+
+    @Override
+    public void saveMessage(Message message) {
+    }
 }

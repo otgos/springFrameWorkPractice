@@ -15,6 +15,8 @@ public class MyApplication {
 
         //Config file is indicated
         AnnotationConfigApplicationContext context= new AnnotationConfigApplicationContext(AppConfiguration.class);
+        //with ComponentScan in Configuration class, it will scan all classes
+        //and creates instances from each component class
 
         //retrieving bean
 //        MailService service = context.getBean(MailService.class); // it will create instance of mail service and send it to us
