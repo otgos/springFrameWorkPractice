@@ -9,6 +9,7 @@ import org.springframework.core.env.Environment;
 
 import java.awt.*;
 import java.util.Properties;
+import java.util.Random;
 
 @Configuration //this will be my configuration class
 @ComponentScan ("com.tpe") //to be able tp use my classes without using new keyword.. IoC
@@ -18,9 +19,17 @@ import java.util.Properties;
 
 public class AppConfiguration {
 
+    //if I need
+    @Bean //creates a bean from Random class, and puts it in a container
+    public Random randomInteger(){
+        return new Random();
+    }
 
-    @Autowired
+
+    @Autowired // to access to app.properties it is from spring framework
     Environment environment;
+
+
 
     @Bean
     public Point point(){
@@ -31,12 +40,12 @@ public class AppConfiguration {
     //it is method based annotation
 
 
-   // @Bean
-//    public Properties properties(){
-//        Properties properties = new Properties();
-//        properties.put("email", environment.getProperty("app.email"));
-//        properties.put("JAVA_HOME", environment.getProperty("JAVA_HOME"));
-//        return properties;
-//    }
+    @Bean
+    public Properties properties(){
+        Properties properties = new Properties();
+        properties.put("myEmail", environment.getProperty("app.email")); //wors as hashtable
+       // properties.put("JAVA_HOME", environment.getProperty("JAVA_HOME"));
+        return properties;
+    }
 
 }

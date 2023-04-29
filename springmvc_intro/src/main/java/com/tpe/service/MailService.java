@@ -10,6 +10,9 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
+
 
 @Component ("mailService")// when scanner starts scanning it creates object and puts
 // it inside container... which will be ready to be used without new keyword...
@@ -27,12 +30,13 @@ public class MailService implements MessageService{
 
     // now since we used component here
 
-    //field injection
+    //field injection  // it uses reflection to reach private field
 //    @Autowired//explain: finds object below from ioc container and injects it here as singleton scope.
 //            //it is called Dependency Injectio
 //    @Qualifier("dbRepository") //it used after autowired,if u have 2 concrete classes implementing from the same
 //            // interface.. so we are writing this which concrete class is qualified
 //    private Repository repository;
+
 
     //Setter injection
 //    private Repository repository;
@@ -44,7 +48,20 @@ public class MailService implements MessageService{
 //    }
 
 
-    //Constructor Injector
+    //Constructor Injector //suggested because: more secure,  readable and easy to test.
+    // while it creates obj from mail service it injects repo
+
+    @PostConstruct //runs just after constructor is called
+    public void init(){
+        System.out.println("New instance from MAIL service is being created...");
+    }
+
+
+    @PreDestroy //this method will be called just before this obj destroyed.. final words of obj...))
+    public void end(){
+        System.out.println("Instance from MAIL service is being destroyed...");
+    }
+
     private Repository repository;
 
     @Autowired
@@ -53,18 +70,13 @@ public class MailService implements MessageService{
 
     }
 
-
-
-
-
-
     public void sendMessage(Message message){
         System.out.println("I am Mail service, and I am sending you message: "+message.getMessage());
-        repository.saveMessage(message);
-        System.out.println(email);
+//        System.out.println(email);
     }
 
     @Override
     public void saveMessage(Message message) {
+        repository.saveMessage(message);
     }
 }

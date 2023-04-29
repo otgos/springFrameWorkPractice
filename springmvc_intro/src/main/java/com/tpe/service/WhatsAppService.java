@@ -9,4 +9,8 @@ public class WhatsAppService implements MessageService{
     public void sendMessage(Message message) {
         System.out.println("I am WhatsApp service, and I am sending you message: "+message.getMessage());
     }
+
+    @Override
+    public void saveMessage(Message message) {
+    }
 }
