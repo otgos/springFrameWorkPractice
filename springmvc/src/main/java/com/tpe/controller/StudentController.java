@@ -29,7 +29,7 @@ public class StudentController {
 
     @GetMapping("/new")
     public String sendStudentForm(@ModelAttribute("student") Student student){
-        return "studentForm"; //@ModelAttribute added "student" obj to Model 
+        return "studentForm"; //@ModelAttribute added "student" obj to Model
     }
 
     @PostMapping ("/saveStudent") //student/saveStudent
@@ -40,6 +40,7 @@ public class StudentController {
     }
 
     @GetMapping()
+
     public ModelAndView getStudents(){
         List<Student> list = service.getAllStudent();
 
@@ -64,6 +65,7 @@ public class StudentController {
     public String deleteStudent(@PathVariable("id") Long id){
         service.deleteStudent(id);
         return "redirect:/students";
+        //added
     }
 
 }
