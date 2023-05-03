@@ -23,6 +23,8 @@ public class StudentController {
     private StudentService service;
 
     //ModelAndView = Holder for both Model and View in the web MVC framework.
+    //it returns either ModelAndView obj (data+view)
+    //or String view name
     @GetMapping("/hi") //students/hi
     public ModelAndView sayHi(){
         ModelAndView mav = new ModelAndView();
