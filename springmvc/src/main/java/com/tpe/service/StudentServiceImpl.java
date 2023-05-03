@@ -41,6 +41,7 @@ public class StudentServiceImpl implements StudentService{
 
     @Override
     public void deleteStudent(Long id) {
-        repository.delete(id);
+        Student student = findStudentById(id);
+        repository.delete(student.getId());
     }
 }

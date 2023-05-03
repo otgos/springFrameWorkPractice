@@ -12,7 +12,7 @@ public interface StudentRepository {
     //get specific student by Id
     Optional<Student> findById(Long id); // if i have 10 students and if i
     // request student whose id is 15 what will happen?? I will get null point exception so we add here Optional
-
+// to get empty optional empty obj
     //save student
     void save(Student student);
 

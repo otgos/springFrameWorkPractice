@@ -13,11 +13,13 @@ import org.springframework.web.servlet.view.JstlView;
 @EnableWebMvc // indicating that we will work with MVC
 @ComponentScan("com.tpe")
 public class WebMvcConfig implements WebMvcConfigurer {
+
+    //** to resolve model files for view
     //add viewResolver obj as a bean
     @Bean //why we did not used component
     public InternalResourceViewResolver resolver(){
         InternalResourceViewResolver resolver = new InternalResourceViewResolver();
-        resolver.setViewClass(JstlView.class);
+        resolver.setViewClass(JstlView.class); //JavaStandartTagLibrary-to write less codes inside JSP files
         resolver.setPrefix("/WEB-INF/views/"); //idicating location of view folder
         resolver.setSuffix(".jsp"); //only consider about .jps extension
         return resolver;
@@ -25,9 +27,12 @@ public class WebMvcConfig implements WebMvcConfigurer {
     }
 
     //we are setting the location of our resources (css, image,  etc)
+    // for static resources we do not need to send this to dispatcher servlet
+    //ex: http://localhost:8080/SpringMvc/resourcrs/images/back.png
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/resources/**").
-                addResourceLocations("/resources/").setCachePeriod(0);
+        registry.addResourceHandler("/resources/**").// get this path for  static sources
+                addResourceLocations("/resources/"). //location
+                setCachePeriod(0); //caching period
     }
 }

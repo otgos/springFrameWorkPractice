@@ -1,6 +1,7 @@
 package com.tpe.domain;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
@@ -11,12 +12,12 @@ public class Student {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @NotEmpty(message= "first Name cannot be empty")
+    @NotBlank(message= "PLease enter valid firstname") // will not accept empty"", null, blank(" ")
     private String firstName;
 
-    @NotEmpty(message= "last Name cannot be empty")
+    @NotEmpty(message= "last Name cannot be empty") //will not accept empty"", null
     private String lastName;
-    @NotNull(message= "Please enter grade")
+    @NotNull(message= "Please enter grade") //will not accept null
     private Integer grade;
 
     private LocalDateTime createdDate = LocalDateTime.now();

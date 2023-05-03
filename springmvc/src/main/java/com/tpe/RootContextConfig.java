@@ -20,12 +20,12 @@ public class RootContextConfig {
     // the environment in which the current application is running.
     // It can be use to get profiles and properties of the application environment.
 
-    //we need hibernate configuration
+    //we need session obj hibernate configuration
     @Bean
     public LocalSessionFactoryBean sessionFactory(){
         LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
-        sessionFactory.setDataSource(dataSource()); // we need to provide info about data base
-        sessionFactory.setPackagesToScan(new String[] {"com.tpe.domain"}); //addannotedclass kusagan narse
+        sessionFactory.setDataSource(dataSource()); // properties needed for JDBC
+        sessionFactory.setPackagesToScan(new String[] {"com.tpe.domain"}); //addannotedclass kusagan narse// where to find entity class
         sessionFactory.setHibernateProperties(hibernateProperties()); // hibernate property
         return sessionFactory;
     }
