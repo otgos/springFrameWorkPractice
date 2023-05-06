@@ -7,7 +7,7 @@ import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatche
 //AbstractAnnotationConfigDispatcherServletInitializer ::--
 // start dispathcer serve and indicate where configuration made
 
-public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
+public class WebAppInitializer ext5ends AbstractAnnotationConfigDispatcherServletInitializer {
 
     /*
         Dispatcher Servlet WebContext -> Controller, Handler Mapping, View Resolver

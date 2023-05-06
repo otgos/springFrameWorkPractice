@@ -9,12 +9,13 @@
 <meta charset="UTF-8">
 <title>Add Student</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css?version=1">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css">
 </head>
 <body>
 	<div class="container">
 		<div align="center">
 			<h2>Add / Update Student</h2>
-			<table>
+			<table class="table table-light table-hover">
 				<form:form modelAttribute="student" action="saveStudent" method="post">
 					<form:hidden path="id" />
 					<tr>
@@ -37,7 +38,7 @@
 
 					<tr>
 						<td></td>
-						<td align="center"><form:button>Submit</form:button></td>
+						<td align="center"><form:button class="btn btn-info">Submit</form:button></td>
 						<td></td>
 					</tr>
 				</form:form>

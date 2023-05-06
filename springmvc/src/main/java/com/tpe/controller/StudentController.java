@@ -32,8 +32,8 @@ public class StudentController {
         mav.addObject("messagebody", "I am Student management system");
         mav.setViewName("hi"); //hi.jsp //Set a view name for this ModelAndView, to be resolved by the DispatcherServlet via a ViewResolver.
         return mav;
-        //added changes
-        //
+        //view resolver finds hi.jsp file from location we have set
+        //and binds data from mav to jsp file
     }
 
     //1 - Student Creation

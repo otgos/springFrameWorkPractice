@@ -1,12 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
+
 <!DOCTYPE html>
 <html>
 <head>
 <%@page isELIgnored="false" %>
 <title>Student Management System</title>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/style.css?version=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css">
 
 </head>
 

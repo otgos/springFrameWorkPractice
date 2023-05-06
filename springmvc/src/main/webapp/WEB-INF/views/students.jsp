@@ -10,21 +10,24 @@
 <title>Student-project</title>
 
 <link rel="stylesheet"  href="${pageContext.request.contextPath}/resources/css/style.css?version=1">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css">
+
 </head>
 <body>
 	<div class="container">
 		<h2>Students</h2>
-		<table>
+		<table class="table table-light table-hover">
 
-			<tr style="background-color: lightblue">
+			<tr >
 				<th>ID</th>
 				<th>First Name</th>
 				<th>Last Name</th>
 				<th>Grade</th>
 				<th>CreateDate</th>
+				<th>Action</th>
 			</tr>
 
-			<c:forEach items="${students}" var="student" varStatus="status">
+			<c:forEach items="${studentList}" var="student" varStatus="status">
 
 				<!-- create an "update" link with Student id -->
 				<c:url var="updateLink" value="/students/update">
@@ -37,12 +40,12 @@
 				</c:url>
 
 				<tr
-					style="background-color:${status.index % 2==0? 'white':'yellow'}">
+					style="background-color:${status.index % 2==0? 'lightgray':'#9484d5'}">
 					<td>${student.id}</td>
 					<td>${student.firstName}</td>
 					<td>${student.lastName}</td>
 					<td>${student.grade}</td>
-					<td>${student.createdDate}</td>
+					<td>${student.createDate}</td>
 					<td>
 						<!-- show the links --> 
 						 
